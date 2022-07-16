@@ -7,7 +7,7 @@ let hue = 0;
 ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
 ctx.lineJoin = "round";
 ctx.lineCap = "round";
-ctx.lineWidth = 50;
+ctx.lineWidth = 2;
 
 let isDraw = false;
 let lastX = 0;
@@ -28,7 +28,9 @@ function draw(e) {
     lastY = e.offsetY;
 
     hue = (hue + 1) % 361;
-    console.log(hue);
+    ctx.lineWidth++;
+    ctx.lineWidth = (ctx.lineWidth % 200);
+    console.log(ctx.lineWidth);
 }
 
 canvas.addEventListener("mousemove", draw);
